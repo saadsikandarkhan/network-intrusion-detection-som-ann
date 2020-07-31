@@ -1,4 +1,4 @@
-# Using Kohonen Self-Organizing Maps variants for Network Intrusion Attack Detection. 
+# Using Kohonen Self-Organizing Maps variant for Network Intrusion Attack Detection. 
 
 
 # Project Overview 
