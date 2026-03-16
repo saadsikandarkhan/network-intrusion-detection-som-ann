@@ -14,7 +14,7 @@ Detecting network intrusion attacks using **Self-Organizing Maps (SOM)** with **
 │   ├── ann_classifier/            # ANN-based classifiers
 │   │   ├── nsl_kdd_classifier.py  # ANN for NSL-KDD classification
 │   │   └── mirai_classifier.py    # ANN for Mirai botnet detection
-│   ├── data_utils.py              # Data loading and preprocessing
+│   ├── preprocessing.py           # Data loading and preprocessing
 │   └── visualization.py           # Plotting utilities
 ├── notebooks/
 │   ├── som_knn_intrusion_detection.ipynb  # SOM-KNN analysis (main)
