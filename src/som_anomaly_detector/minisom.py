@@ -54,7 +54,7 @@ class MiniSom:
         if sigma >= x / 2.0 or sigma >= y / 2.0:
             warn("Warning: sigma is too high for the dimension of the map.")
 
-        self.random_generator = random.RandomState(random_seed)
+        self.random_generator = random.default_rng(random_seed)
 
         if decay_function:
             self._decay_function = decay_function
@@ -65,7 +65,7 @@ class MiniSom:
         self.sigma = sigma
 
         # Random initialization with normalization
-        self.weights = self.random_generator.rand(x, y, input_len) * 2 - 1
+        self.weights = self.random_generator.random((x, y, input_len)) * 2 - 1
         for i in range(x):
             for j in range(y):
                 self.weights[i, j] /= fast_norm(self.weights[i, j])
@@ -134,7 +134,7 @@ class MiniSom:
         it = nditer(self.activation_map, flags=["multi_index"])
         while not it.finished:
             self.weights[it.multi_index] = data[
-                self.random_generator.randint(len(data))
+                self.random_generator.integers(len(data))
             ]
             self.weights[it.multi_index] /= fast_norm(self.weights[it.multi_index])
             it.iternext()
@@ -143,7 +143,7 @@ class MiniSom:
         """Train by picking random samples from ``data``."""
         self._init_T(num_iteration)
         for iteration in range(num_iteration):
-            rand_i = self.random_generator.randint(len(data))
+            rand_i = self.random_generator.integers(len(data))
             self.update(data[rand_i], self.winner(data[rand_i]), iteration)
 
     def train_batch(self, data, num_iteration):

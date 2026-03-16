@@ -80,8 +80,8 @@ def preprocess_mirai(features, targets, test_size=0.25, random_state=0):
 
 def build_mirai_model(input_dim, num_classes=5, hidden_units=21, dropout_rate=0.2):
     """Build a Sequential ANN for Mirai traffic classification."""
-    from tensorflow.keras.models import Sequential
-    from tensorflow.keras.layers import Dense, Dropout
+    from keras.models import Sequential
+    from keras.layers import Dense, Dropout
 
     model = Sequential([
         Dense(hidden_units, kernel_initializer="uniform",

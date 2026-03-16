@@ -55,7 +55,7 @@ class KohonenSom:
         # Add extra dimension for element-wise multiplication with weights
         self.distance = np.repeat(self.distance, self.input_size, self.dimension - 1)
         self.distance = np.reshape(
-            self.distance, newshape=(distance.shape + (self.input_size,))
+            self.distance, shape=(distance.shape + (self.input_size,))
         )
 
         # Initialize grid with random weights in [-1, 1]

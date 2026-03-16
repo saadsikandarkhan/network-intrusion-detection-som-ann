@@ -35,8 +35,8 @@ def build_ann_model(input_dim, num_classes=5, hidden_units=45, dropout_rate=0.2)
     keras.Sequential
         Compiled model.
     """
-    from tensorflow.keras.models import Sequential
-    from tensorflow.keras.layers import Dense, Dropout
+    from keras.models import Sequential
+    from keras.layers import Dense, Dropout
 
     model = Sequential([
         Dense(hidden_units, kernel_initializer="uniform",
